@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes"> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="News">
+    <meta name="theme-color" content="#121212">
+    <!-- Android Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <title>News</title>
-    <style>
-        body { background-color: #121212; padding: 20px; }
-        .section { margin-bottom: 40px; }
-        .section-title { color: #888; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-family: -apple-system, sans-serif; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card { background: #1e1e1e; border-radius: 15px; text-align: center; padding: 20px; text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center; transition: background 0.3s; }
-        .card:hover { background: #2a2a2a; }
-        img { width: 50px; height: 50px; margin-bottom: 10px; border-radius: 10px; }
-        span { font-family: -apple-system, sans-serif; font-weight: 600; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- NEWS ITALIA -->
@@ -128,5 +127,78 @@
             <!--https://fufflix.ghost.io/-->
         </div>
     </div>
+
+    <script>
+        // Device Detection - iOS vs Android
+        function detectDevice() {
+            const ua = navigator.userAgent || navigator.vendor || window.opera;
+            const isIOS = /iPad|iPhone|iPod/.test(ua);
+            const isAndroid = /Android/.test(ua);
+            
+            // Add device class to body
+            if (isIOS) {
+                document.body.classList.add('device-ios');
+                document.documentElement.style.setProperty('--device-type', 'ios');
+            } else if (isAndroid) {
+                document.body.classList.add('device-android');
+                document.documentElement.style.setProperty('--device-type', 'android');
+            } else {
+                document.body.classList.add('device-desktop');
+                document.documentElement.style.setProperty('--device-type', 'desktop');
+            }
+            
+            // Detect screen size and adjust grid
+            function adjustGrid() {
+                const width = window.innerWidth;
+                const grids = document.querySelectorAll('.grid');
+                
+                grids.forEach(grid => {
+                    if (width <= 480) {
+                        grid.style.gridTemplateColumns = '1fr';
+                    } else if (width <= 768) {
+                        grid.style.gridTemplateColumns = '1fr';
+                    } else {
+                        grid.style.gridTemplateColumns = '1fr 1fr';
+                    }
+                });
+            }
+            
+            adjustGrid();
+            window.addEventListener('resize', adjustGrid);
+            
+            // Improve touch interactions
+            if (isIOS || isAndroid) {
+                document.addEventListener('touchend', function(e) {
+                    if (e.target.classList.contains('card')) {
+                        e.target.style.transform = 'scale(1)';
+                    }
+                }, false);
+            }
+        }
+        
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', detectDevice);
+        } else {
+            detectDevice();
+        }
+        
+        // Handle viewport changes for notch/safe area
+        window.addEventListener('orientationchange', function() {
+            setTimeout(function() {
+                const width = window.innerWidth;
+                const grids = document.querySelectorAll('.grid');
+                grids.forEach(grid => {
+                    if (width <= 480) {
+                        grid.style.gridTemplateColumns = '1fr';
+                    } else if (width <= 768) {
+                        grid.style.gridTemplateColumns = '1fr';
+                    } else {
+                        grid.style.gridTemplateColumns = '1fr 1fr';
+                    }
+                });
+            }, 100);
+        });
+    </script>
 </body>
 </html>
