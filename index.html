@@ -6,76 +6,124 @@
     <meta name="apple-mobile-web-app-capable" content="yes"> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>News</title>
     <style>
-        body { background-color: #121212; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-        .card { background: #1e1e1e; border-radius: 15px; text-align: center; padding: 20px; text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center; }
+        body { background-color: #121212; padding: 20px; }
+        .section { margin-bottom: 40px; }
+        .section-title { color: #888; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-family: -apple-system, sans-serif; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .card { background: #1e1e1e; border-radius: 15px; text-align: center; padding: 20px; text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center; transition: background 0.3s; }
+        .card:hover { background: #2a2a2a; }
         img { width: 50px; height: 50px; margin-bottom: 10px; border-radius: 10px; }
         span { font-family: -apple-system, sans-serif; font-weight: 600; }
     </style>
 </head>
 <body>
-    <a href="https://www.ilpost.it/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=ilpost.it" alt="il Post">
-        <span>Il Post</span>
-    </a>
-    
-    <a href="https://www.valigiablu.it/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=valigiablu.it" alt="Valigia Blu">
-        <span>Valigia Blu</span>
-    </a>
+    <!-- NEWS ITALIA -->
+    <div class="section">
+        <div class="section-title">📰 News Italia</div>
+        <div class="grid">
+            <a href="https://www.ilpost.it/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=ilpost.it" alt="il Post">
+                <span>Il Post</span>
+            </a>
+            
+            <a href="https://www.valigiablu.it/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=valigiablu.it" alt="Valigia Blu">
+                <span>Valigia Blu</span>
+            </a>
 
-    <a href="https://quifinanza.it/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=quifinanza.it" alt="QuiFinanza">
-        <span>QuiFinanza</span>
-    </a>
+            <a href="https://www.ansa.it/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=ansa.it" alt="ANSA">
+                <span>ANSA</span>
+            </a>
 
-    <a href="https://www.ansa.it/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=ansa.it" alt="ANSA">
-        <span>ANSA</span>
-    </a>
+            <a href="https://www.ilgiornaleditalia.it/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=ilgiornaleditalia.it" alt="Il Giornale d'Italia">
+                <span>Il Giornale d'Italia</span>
+            </a>
 
-    <a href="https://thehackernews.com/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=thehackernews.com" alt="The Hacker News">
-        <span>The Hacker News</span>
-    </a>
+            <a href="https://www.lindipendente.online/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=lindipendente.online" alt="L'Indipendente">
+                <span>L'Indipendente</span>
+            </a>
+        </div>
+    </div>
 
-    <a href="https://apnews.com/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=apnews.com" alt="AP News">
-        <span>AP News</span>
-    </a>
+    <!-- NEWS INTERNAZIONALI -->
+    <div class="section">
+        <div class="section-title">🌍 News Internazionali</div>
+        <div class="grid">
+            <a href="https://apnews.com/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=apnews.com" alt="AP News">
+                <span>AP News</span>
+            </a>
+                <a href="https://www.hrw.org/" class="card">
+                    <img src="https://www.google.com/s2/favicons?sz=256&domain=hrw.org" alt="HRW">
+                    <span>Human Rights Watch</span>
+                </a>
 
-    <a href="https://www.hrw.org/the-day-in-human-rights/2025/04/03e" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=hrw.org" alt="HRW">
-        <span>Human Rights Watch</span>
-    </a>
+        </div>
+    </div>
 
-    <a href="https://www.securityweek.com/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=securityweek.com" alt="SecurityWeek">
-        <span>SecurityWeek</span>
-    </a>
+    <!-- FINANZA -->
+    <div class="section">
+        <div class="section-title">💰 Finanza</div>
+        <div class="grid">
+            <a href="https://quifinanza.it/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=quifinanza.it" alt="QuiFinanza">
+                <span>QuiFinanza</span>
+            </a>
+        </div>
+    </div>
 
-    <a href="https://www.ilgiornaleditalia.it/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=ilgiornaleditalia.it" alt="Il Giornale d'Italia">
-        <span>Il Giornale d'Italia</span>
-    </a>
+    <!-- CYBERSECURITY & SICUREZZA -->
+    <div class="section">
+        <div class="section-title">🔒 Cybersecurity & Sicurezza</div>
+        <div class="grid">
+            <a href="https://thehackernews.com/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=thehackernews.com" alt="The Hacker News">
+                <span>The Hacker News</span>
+            </a>
 
-    <a href="https://www.artificialintelligence-news.com/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=artificialintelligence-news.com" alt="AI News">
-        <span>Artificial Intelligence News</span>
-    </a>
+            <a href="https://www.securityweek.com/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=securityweek.com" alt="SecurityWeek">
+                <span>SecurityWeek</span>
+            </a>
+        </div>
+    </div>
 
-    <a href="https://rumafia.news/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=rumafia.news" alt="Rumafia">
-        <span>Rumafia</span>
-    </a>
+    <!-- TECNOLOGIA & AI -->
+    <div class="section">
+        <div class="section-title">🤖 Tecnologia & AI</div>
+        <div class="grid">
+            <a href="https://www.artificialintelligence-news.com/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=artificialintelligence-news.com" alt="AI News">
+                <span>Artificial Intelligence News</span>
+            </a>
+        </div>
+    </div>
 
-    <a href="https://www.antimafiaduemila.com/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=antimafiaduemila.com" alt="Antimafia Duemila">
-        <span>Antimafia Duemila</span>
-    </a>
+    <!-- DIRITTI UMANI & CRIMINALITÀ -->
+    <div class="section">
+        <div class="section-title">⚖️ Diritti Umani & Criminalità</div>
+        <div class="grid">
+       
+            <a href="https://rumafia.news/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=rumafia.news" alt="Rumafia">
+                <span>Rumafia</span>
+            </a>
 
-    <a href="https://www.lindipendente.online/" class="card">
-        <img src="https://www.google.com/s2/favicons?sz=256&domain=lindipendente.online" alt="L'Indipendente">
-        <span>L'Indipendente</span>
-    </a>
+            <a href="https://www.antimafiaduemila.com/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=antimafiaduemila.com" alt="Antimafia Duemila">
+                <span>Antimafia Duemila</span>
+            </a>
+
+            <a href="https://fufflix.ghost.io/" class="card">
+                <img src="https://www.google.com/s2/favicons?sz=256&domain=fufflix.ghost.io" alt="Fufflix">
+                <span>Fufflix</span>
+            </a>
+
+            <!--https://fufflix.ghost.io/-->
+        </div>
+    </div>
 </body>
 </html>
